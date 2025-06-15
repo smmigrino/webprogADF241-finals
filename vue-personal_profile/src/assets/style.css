@@ -1,0 +1,190 @@
+/*--------------------------------------------------------------
+>>> IMPORTS
+----------------------------------------------------------------*/
+/* Import Google Fonts - Poppins with weights 300, 400, and 600 */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+
+/*--------------------------------------------------------------
+>>> BASE STYLES
+----------------------------------------------------------------*/
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif; /* Primary font */
+    background-color: #b2d8d8; /* Soft teal background */
+    color: #004c4c; /* Dark teal text color */
+}
+
+
+/*--------------------------------------------------------------
+>>> GRID LAYOUT
+----------------------------------------------------------------*/
+/* Main grid container for layout */
+.grid-container {
+    display: grid;
+    width: 1100px;
+    height: auto;
+    margin: 40px auto; /* Centered with vertical spacing */
+    padding: 20px;
+    grid-template-rows: repeat(6, auto); /* 6 auto-sized rows */
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 20px; /* Spacing between items */
+    background-color: #ffffff; /* White background for contrast */
+    border-radius: 20px; /* Rounded corners */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+
+/*--------------------------------------------------------------
+>>> FLEX ITEMS (GRID CHILDREN)
+----------------------------------------------------------------*/
+/* Shared style for all grid items */
+.flex-item {
+    padding: 20px;
+    border-radius: 15px;
+    color: white;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+
+/*--------------------------------------------------------------
+>>> INDIVIDUAL ITEM BACKGROUNDS
+----------------------------------------------------------------*/
+/* Distinct background colors for visual variation */
+.item1 {
+    background-color: #008080; /* Teal */
+}
+.item2 {
+    background-color: #006666; /* Darker teal */
+}
+.item3 {
+    background-color: #008080;
+}
+.item4 {
+    background-color: #006666;
+}
+.item5 {
+    background-color: #004c4c; /* Darkest teal */
+}
+
+
+/*--------------------------------------------------------------
+>>> TEXT STYLES FOR ITEMS
+----------------------------------------------------------------*/
+/* Smaller title text inside items */
+.title {
+    color: #f0f0f0;
+    font-size: 18px;
+    font-weight: 300;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+/* Name text, likely a heading or emphasized label */
+.name {
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: 400;
+    margin-left: 10px;
+}
+
+/* Additional details under each name or title */
+.details {
+    display: block;
+    color: #e0f7f7;
+    font-size: 17px;
+    margin: 10px 0 5px 0;
+    padding-left: 15px;
+    border-left: 3px solid rgba(255, 255, 255, 0.3); /* Decorative left border */
+    font-weight: 600;
+}
+
+
+/*--------------------------------------------------------------
+>>> HEADER STYLING
+----------------------------------------------------------------*/
+/* Optional header styling, centers and colors main heading */
+header h1 {
+    text-align: center;
+    color: #004c4c;
+    font-size: 2.5rem;
+    margin-top: 50px;
+
+}
+
+
+/*--------------------------------------------------------------
+>>> GUESTBOOK FORM STYLES
+----------------------------------------------------------------*/
+/* Container for the guestbook form */
+.guestbook-form {
+    background-color: white;
+    border-radius: 15px;
+    padding: 30px;
+    max-width: 600px;
+    margin: 40px auto; /* Centered */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Light shadow */
+    font-family: 'Segoe UI', sans-serif; /* Alternate font for form */
+    color: #007c7c;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Spacing between form elements */
+}
+
+/* Form heading */
+.guestbook-form h2 {
+    margin-bottom: 10px;
+    font-size: 24px;
+    color: #007c7c;
+    text-align: center;
+}
+
+/* Label styling */
+.guestbook-form label {
+    font-weight: 600;
+    color: #007c7c;
+}
+
+/* Input and textarea fields */
+.guestbook-form input,
+.guestbook-form textarea {
+    padding: 10px;
+    border: 1px solid #00b3b3;
+    border-radius: 8px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    color: #005757;
+}
+
+/* Allow textarea resizing and set minimum height */
+.guestbook-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+  /* Submit button styling */
+  .guestbook-form button {
+    background-color: 	#006666;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  /* Hover effect for button */
+  .guestbook-form button:hover {
+    background-color: #004444;
+  }
+  
+/* Thank you message after form submission */
+.thank-you {
+    text-align: center;
+    color: #007c7c;
+    font-weight: bold;
+    margin-top: 10px;
+}
