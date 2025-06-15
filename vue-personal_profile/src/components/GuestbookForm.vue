@@ -16,7 +16,7 @@
         <li v-for="entry in entries" :key="entry.id">
           <strong>{{ entry.name }}</strong>: {{ entry.reason }}
 
-          <GuestbookComment :entryId="entry.id" />
+          <GuestbookLogs :entryId="entry.id" />
 
         </li>
       </ul>
