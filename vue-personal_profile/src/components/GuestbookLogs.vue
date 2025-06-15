@@ -15,47 +15,43 @@
   </div>
 </template>
 
-<script>
-import { supabase } from '../supabase';
+<script setup>
+import { ref, onMounted } from 'vue'
+import { supabase } from '../supabase'
+import { defineProps } from 'vue'
 
-export default {
-  props: {
-    entryId: {
-      type: Number,
-      required: true
-    }
-  },
-  data() {
-    return {
-      newComment: '',
-      comments: []
-    };
-  },
-  async mounted() {
-    await this.fetchComments();
-  },
-  methods: {
-    async fetchComments() {
-      const { data, error } = await supabase
-        .from('comments')
-        .select('*')
-        .eq('entry_id', this.entryId)
-        .order('created_at', { ascending: true });
-
-      if (!error) this.comments = data;
-    },
-    async addComment() {
-      const { data, error } = await supabase
-        .from('comments')
-        .insert([{ entry_id: this.entryId, text: this.newComment }]);
-
-      if (!error) {
-        this.comments.push(data[0]);
-        this.newComment = '';
-      }
-    }
+const props = defineProps({
+  entryId: {
+    type: Number,
+    required: true
   }
-};
+})
+
+const newComment = ref('')
+const comments = ref([])
+
+async function fetchComments() {
+  const { data, error } = await supabase
+    .from('comments')
+    .select('*')
+    .eq('entry_id', props.entryId)
+    .order('created_at', { ascending: true })
+
+  if (!error) comments.value = data
+}
+
+async function addComment() {
+  const { data, error } = await supabase
+    .from('comments')
+    .insert([{ entry_id: props.entryId, text: newComment.value }])
+
+  if (!error && data && data.length) {
+    comments.value.push(data[0])
+    newComment.value = ''
+  }
+}
+
+onMounted(fetchComments)
 </script>
 
 <style scoped>

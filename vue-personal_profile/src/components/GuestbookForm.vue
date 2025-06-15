@@ -1,6 +1,7 @@
 <template>
   <form @submit.prevent="submitForm" class="guestbook-form">
     <h2>Guestbook</h2>
+
     <label for="name">Name:</label>
     <input v-model="name" type="text" id="name" required />
 
@@ -15,48 +16,38 @@
       <ul>
         <li v-for="entry in entries" :key="entry.id">
           <strong>{{ entry.name }}</strong>: {{ entry.reason }}
-
           <GuestbookLogs :entryId="entry.id" />
-
         </li>
       </ul>
     </div>
   </form>
 </template>
 
-<script>
+<script setup>
+import { ref, onMounted } from 'vue'
 import { supabase } from '../supabase'
-import GuestbookLogs from './GuestbookLogs.vue';
+import GuestbookLogs from './GuestbookLogs.vue'
 
-export default {
-    components: {
-        GuestbookLogs
-    },
-  data() {
-    return {
-      name: '',
-      reason: '',
-      submitted: false,
-      entries: []
-    };
-  },
-  async mounted() {
-    const { data, error } = await supabase.from('guestbook').select('*');
-    if (data) this.entries = data.reverse();
-  },
-  methods: {
-    async submitForm() {
-      const { data, error } = await supabase
-        .from('guestbook')
-        .insert([{ name: this.name, reason: this.reason }]);
+const name = ref('')
+const reason = ref('')
+const submitted = ref(false)
+const entries = ref([])
 
-      if (!error) {
-        this.entries.unshift(data[0]);
-        this.name = '';
-        this.reason = '';
-        this.submitted = true;
-      }
-    }
+async function submitForm() {
+  const { data, error } = await supabase
+    .from('guestbook')
+    .insert([{ name: name.value, reason: reason.value }])
+
+  if (!error && data && data.length) {
+    entries.value.unshift(data[0])
+    name.value = ''
+    reason.value = ''
+    submitted.value = true
   }
-};
+}
+
+onMounted(async () => {
+  const { data, error } = await supabase.from('guestbook').select('*')
+  if (data) entries.value = data.reverse()
+})
 </script>

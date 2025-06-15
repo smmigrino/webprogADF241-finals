@@ -30,21 +30,5 @@
       <span class="title">Goal in life:</span>
       <span class="details hobbies">Use tech for healthcare reform.</span>
     </div>
-
-    <div class="flex-item item6">
-      <GuestbookForm />
-    </div>
   </div>
 </template>
-
-<script>
-import FavoritesGallery from './components/FavoritesGallery.vue';
-import GuestbookForm from './components/GuestbookForm.vue';
-
-export default {
-  components: {
-    FavoritesGallery,
-    GuestbookForm
-  }
-};
-</script>

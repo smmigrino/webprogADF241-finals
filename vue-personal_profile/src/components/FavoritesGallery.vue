@@ -13,30 +13,25 @@
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      photos: [
-        { src: 'assets/images/img-1.gif' },
-        { src: 'assets/images/img-2.jpg' },
-        { src: 'assets/images/img-3.jpg' },
-        { src: 'assets/images/img-4.jpg' },
-        { src: 'assets/images/img-5.jpg' }
-      ]
-    };
-  },
-  methods: {
-    getItemStyle(index) {
-      const styles = [
-        { flex: '1 1 45%', height: '150px' },
-        { flex: '1 1 30%', height: '150px' },
-        { flex: '1 1 40%', height: '150px' },
-        { flex: '1 1 30%', height: '150px' },
-        { flex: '1 1 30%', height: '185px' }
-      ];
-      return styles[index] || { flex: '1 1 45%', height: '150px' };
-    }
-  }
-};
+<script setup>
+import { ref } from 'vue'
+
+const photos = ref([
+  { src: 'assets/images/img-1.gif' },
+  { src: 'assets/images/img-2.jpg' },
+  { src: 'assets/images/img-3.jpg' },
+  { src: 'assets/images/img-4.jpg' },
+  { src: 'assets/images/img-5.jpg' }
+])
+
+function getItemStyle(index) {
+  const styles = [
+    { flex: '1 1 45%', height: '150px' },
+    { flex: '1 1 30%', height: '150px' },
+    { flex: '1 1 40%', height: '150px' },
+    { flex: '1 1 30%', height: '150px' },
+    { flex: '1 1 30%', height: '185px' }
+  ]
+  return styles[index] || { flex: '1 1 45%', height: '150px' }
+}
 </script>
