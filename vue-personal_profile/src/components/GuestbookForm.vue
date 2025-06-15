@@ -26,7 +26,7 @@
 
 <script>
 import { supabase } from '../supabase'
-import GuestbookComment from './Guestbooklogs.vue';
+import GuestbookLogs from './GuestbookLogs.vue';
 
 export default {
     components: {
