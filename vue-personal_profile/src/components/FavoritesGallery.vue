@@ -17,11 +17,11 @@
 import { ref } from 'vue'
 
 const photos = ref([
-  { src: 'assets/images/img-1.gif' },
-  { src: 'assets/images/img-2.jpg' },
-  { src: 'assets/images/img-3.jpg' },
-  { src: 'assets/images/img-4.jpg' },
-  { src: 'assets/images/img-5.jpg' }
+  { src: '/images/img-1.gif' },
+  { src: '/images/img-2.jpg' },
+  { src: '/images/img-3.jpg' },
+  { src: '/images/img-4.jpg' },
+  { src: '/images/img-5.jpg' }
 ])
 
 function getItemStyle(index) {
