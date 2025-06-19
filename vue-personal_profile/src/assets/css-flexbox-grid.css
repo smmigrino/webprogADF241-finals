@@ -26,34 +26,32 @@
 }
 
 /* ======== GRID ITEM POSITIONING ======== */
-.item1 {
+/* Position header inside grid */
+.header {
   grid-row: 1 / 2;
-  grid-column: 1 / 3; /* Spans across both columns */
+  grid-column: 1 / 3;
 }
 
+/* Adjust all other item rows down by one */
+.item1 {
+  grid-row: 2 / 3;
+  grid-column: 1 / 3;
+}
 .item2 {
-  grid-row: 2 / 5;
-  grid-column: 1 / 2; /* Left column */
+  grid-row: 3 / 6;
+  grid-column: 1 / 2;
 }
-
 .item3 {
-  grid-row: 5 / 6;
-  grid-column: 1 / 2; /* Left column */
-}
-
-.item4 {
-  grid-row: 2 / 6;
-  grid-column: 2 / 3; /* Right column */
-}
-
-.item5 {
   grid-row: 6 / 7;
-  grid-column: 1 / 3; /* Full width */
+  grid-column: 1 / 2;
 }
-
-.item6 {
+.item4 {
+  grid-row: 3 / 7;
+  grid-column: 2 / 3;
+}
+.item5 {
   grid-row: 7 / 8;
-  grid-column: 1 / 3; /* Full width */
+  grid-column: 1 / 3;
 }
 
 /* ======== GALLERY STYLES ======== */

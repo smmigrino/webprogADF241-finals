@@ -1,6 +1,6 @@
 <template>
   <div class="grid-container">
-    <header><h1>Basic Info Page</h1></header>
+    <header class="header"><h1>Basic Info Page</h1></header>
 
     <div class="flex-item item1">
       <span class="fname">Fullname:</span>
