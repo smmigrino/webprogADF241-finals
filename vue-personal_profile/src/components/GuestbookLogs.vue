@@ -24,6 +24,7 @@ const props = defineProps({
   entryId: {
     type: Number,
     required: true
+    defualt: null
   }
 })
 
