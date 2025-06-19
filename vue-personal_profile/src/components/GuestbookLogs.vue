@@ -23,7 +23,7 @@ import { defineProps } from 'vue'
 const props = defineProps({
   entryId: {
     type: Number,
-    required: true
+    required: true,
     default: null
   }
 })
