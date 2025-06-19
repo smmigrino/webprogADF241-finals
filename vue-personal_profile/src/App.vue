@@ -27,7 +27,7 @@
 
     <div class="flex-item item4">
       <span class="title">Favorite's Gallery:</span>
-      <FavoritesGallery />
+      <favorites-gallery/>
     </div>
 
     <div class="flex-item item5">
@@ -36,13 +36,12 @@
     </div>
     
       <div class="flex-item item6">
-             <GuestbookForm />
+             <guestbook-form/>
 	</div>
 
   </div>
 </template>
 
 <script setup>
-import FavoritesGallery from './components/FavoritesGallery.vue'
-import GuestbookForm from './components/GuestbookForm.vue'
+
 </script>
