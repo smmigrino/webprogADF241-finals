@@ -2,6 +2,8 @@
   <form @submit.prevent="submitForm" class="guestbook-form">
     <h2>Guestbook</h2>
 
+    <p style="color: red;">Guestbook component loaded!</p>
+
     <label for="name">Name:</label>
     <input v-model="name" type="text" id="name" required />
 
