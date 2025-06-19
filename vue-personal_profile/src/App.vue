@@ -35,7 +35,7 @@
       <span class="details hobbies">Use tech for healthcare reform.</span>
     </div>
     
-    <div class="flex-item item6">
+      <div class="flex-item item6">
 			<!-- Item 6: Guestbook Form -->
              <GuestbookForm />
 	</div>
