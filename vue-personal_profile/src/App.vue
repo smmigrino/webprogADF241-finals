@@ -36,7 +36,6 @@
     </div>
     
       <div class="flex-item item6">
-			<!-- Item 6: Guestbook Form -->
              <GuestbookForm />
 	</div>
 
