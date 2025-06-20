@@ -1,58 +1,32 @@
 <template>
   <div class="comment-section">
-    <h4>Comments</h4>
+    <h4>Signatures</h4>
 
     <ul>
-      <li v-for="comment in comments" :key="comment.id">
-        {{ comment.text }}
+      <li v-for="reason in reasons" :key="reason.id">
+        {{ reason.reason }}
       </li>
     </ul>
 
-    <form @submit.prevent="addComment">
-      <input v-model="newComment" placeholder="Write a comment..." required />
-      <button type="submit">Post</button>
-    </form>
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
 import { supabase } from '../supabase'
-import { defineProps } from 'vue'
 
-const props = defineProps({
-  entryId: {
-    type: Number,
-    required: true,
-    default: null
-  }
+
+const entry = ref([])
+
+async function fetchEntries() {
+  const { data, error } = await supabase.from('guestbook').select('*')
+
+}
+
+
+onMounted(() => {
+  fetchEntries()
 })
-
-const newComment = ref('')
-const comments = ref([])
-
-async function fetchComments() {
-  const { data, error } = await supabase
-    .from('comments')
-    .select('*')
-    .eq('entry_id', props.entryId)
-    .order('created_at', { ascending: true })
-
-  if (!error) comments.value = data
-}
-
-async function addComment() {
-  const { data, error } = await supabase
-    .from('comments')
-    .insert([{ entry_id: props.entryId, text: newComment.value }])
-
-  if (!error && data && data.length) {
-    comments.value.push(data[0])
-    newComment.value = ''
-  }
-}
-
-onMounted(fetchComments)
 </script>
 
 <style scoped>

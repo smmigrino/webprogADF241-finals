@@ -1,4 +1,5 @@
 <template>
+  <div>
   <form @submit.prevent="submitForm" class="guestbook-form">
     <h2>Guestbook</h2>
 
@@ -9,10 +10,13 @@
     <textarea v-model="reason" id="reason" required></textarea>
 
     <button type="submit">Sign Guestbook</button>
-    <p v-if="submitted" class="thank-you">Thank you for signing the guestbook!</p>
+    <div v-if="submissionStatus" class="thank-you">
+
+    </div>
 
   
   </form>
+  </div>
 </template>
 
 <script setup>
@@ -20,26 +24,32 @@ import { ref, onMounted } from 'vue'
 import { supabase } from '../supabase'
 
 
-const name = ref('')
-const reason = ref('')
-const submitted = ref(false)
+const name = ref('');
+const reason = ref('');
+const submissionStatus = ref(null);
 
 
 async function submitForm() {
-  const { data, error } = await supabase
-    .from('guestbook')
-    .insert([{ name: name.value, reason: reason.value }])
-
-  if (!error && data && data.length) {
-    entries.value.unshift(data[0])
-    name.value = ''
-    reason.value = ''
-    submitted.value = true
-  }
+submissionStatus.value = "Submitting...";
+    try {
+      const { error } = await supabase
+        .from('guestbook')
+        .insert([{ name: name.value, reason: reason.value }]);
+  
+      if (error) {
+        console.error("Error inserting comment:", error);
+        submissionStatus.value = "Error submitting entry. Please try again.";
+      } else {
+        submissionStatus.value = "Signed successfully!";
+        name.value = ''; // Clear form fields
+        reason.value = '';
+        emit('comment-submitted')//added
+      }
+    } catch (err) {
+      console.error("An unexpected error occurred:", err);
+      submissionStatus.value = "An unexpected error occurred. Please try again later.";
+    }
 }
 
-onMounted(async () => {
-  const { data, error } = await supabase.from('guestbook').select('*')
-  if (data) entries.value = data.reverse()
-})
+
 </script>
