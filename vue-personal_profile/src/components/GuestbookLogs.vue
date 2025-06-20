@@ -25,7 +25,7 @@ async function getGuestbook() {
 
 
 onMounted(() => {
-  fetchEntries()
+  getGuestbook()
 })
 </script>
 
