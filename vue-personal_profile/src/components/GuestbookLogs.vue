@@ -3,8 +3,8 @@
     <h4>Signatures</h4>
 
     <ul>
-      <li v-for="reason in reasons" :key="reason.id">
-        {{ reason.reason }}
+      <li v-for="guestbook in guestbooks" :key="guestbook.id">
+        {{ guestbook.guestbook }}
       </li>
     </ul>
 
@@ -16,11 +16,11 @@ import { ref, onMounted } from 'vue'
 import { supabase } from '../supabase'
 
 
-const entry = ref([])
+const guestbooks = ref([])
 
-async function fetchEntries() {
-  const { data } = await supabase.from('guestbook').select('*')
-  entry.value = data
+async function getGuestbook() {
+  const { data } = await supabase.from('guestbook').select('')
+  guestbooks.value = data
 }
 
 
