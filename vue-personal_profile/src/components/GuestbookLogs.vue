@@ -19,8 +19,8 @@ import { supabase } from '../supabase'
 const entry = ref([])
 
 async function fetchEntries() {
-  const { data, error } = await supabase.from('guestbook').select('*')
-
+  const { data } = await supabase.from('guestbook').select('*')
+  entry.value = data
 }
 
 
