@@ -31,6 +31,7 @@ onMounted(() => {
 
 <style scoped>
 .comment-section {
+  color: #004c4c;
   margin-top: 1em;
   border-top: 1px solid #ddd;
   padding-top: 1em;
