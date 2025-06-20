@@ -19,7 +19,7 @@ import { supabase } from '../supabase'
 const guestbooks = ref([])
 
 async function getGuestbook() {
-  const { data } = await supabase.from('guestbook').select()
+  const { data } = await supabase.from('guestbook').select('*')
   guestbooks.value = data
 }
 
