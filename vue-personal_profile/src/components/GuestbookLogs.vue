@@ -19,10 +19,13 @@ import { supabase } from '../supabase'
 const guestbooks = ref([])
 
 async function getGuestbook() {
-  const { data } = await supabase.from('guestbook').select('*')
-  guestbooks.value = data
+  const { data, error } = await supabase.from('guestbook').select('*')
+  if (error) {
+    console.error('Error fetching guestbook:', error)
+  } else {
+    guestbooks.value = data
+  }
 }
-
 
 onMounted(() => {
   getGuestbook()
