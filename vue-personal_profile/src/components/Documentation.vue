@@ -1,7 +1,7 @@
 <template>
   <div class="docu-section">
     <p>
-      <a href="https://docs.google.com/document/d/1kMwc18jlZzfUcNFPojLP6aBWIdr9MQwmXa2aHdsqMWc/edit?usp=sharing" target="_blank" class="doc-link">click me</a> to view the documentation.
+      <a href="https://docs.google.com/document/d/1kMwc18jlZzfUcNFPojLP6aBWIdr9MQwmXa2aHdsqMWc/edit?usp=sharing" target="_blank" class="doc-link">Click me</a> to view the documentation.
     </p>
   </div>
 </template>
@@ -22,7 +22,7 @@ import { ref } from 'vue'
 .doc-link {
   color: #42b983;
   text-decoration: underline;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .doc-link:hover {
