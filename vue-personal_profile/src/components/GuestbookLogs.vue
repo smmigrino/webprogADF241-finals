@@ -4,7 +4,7 @@
 
     <ul>
       <li v-for="guestbook in guestbooks" :key="guestbook.id">
-        {{ guestbook.name }} {{ guestbook.reason }}
+        <p> Visitor:{{ guestbook.name }}</p><br> <p> Reason for visiting: {{ guestbook.reason }}</p>
       </li>
     </ul>
 
