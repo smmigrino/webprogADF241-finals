@@ -1,6 +1,6 @@
 <template>
 <div class="docu-section">
-    <h2> Documentation </h2>
+    <h4> Documentation </h4>
     <p> sample sample www.facebook.com </p> 
 </div>
 
