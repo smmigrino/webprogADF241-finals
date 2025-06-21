@@ -6,7 +6,7 @@
 </template>
 
 <style scoped>
-.docu-secction {
+.docu-section {
     color: #004c4c;
     margin-top: 1em;
     border-top: 1px solid #ddd;
